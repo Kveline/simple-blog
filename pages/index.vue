@@ -18,8 +18,9 @@
     //     loadedPost: []
     //   }
     // }, 
+    fetch(context) {
+      if(context.store.state.loadedPost.length > 0) return null;
 
-    asyncData(context) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve({
@@ -40,13 +41,14 @@
           // if error reject(new Error());
         }, 1500);
       }).then(data => {
-        return data
+        context.store.commit('setPosts', data.loadedPost)
       })
       .catch(e => context.error(new Error()))
     },
-
-    created() {
-
+    computed : {
+      loadedPost(){
+        return this.$store.getters.loadedPost;
+      }
     }
   }
 </script>
