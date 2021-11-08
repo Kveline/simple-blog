@@ -13,37 +13,9 @@
     components: {
       PostList
     },
-    // data() {
-    //   return {
-    //     loadedPost: []
-    //   }
-    // }, 
+
     fetch(context) {
       if(context.store.state.loadedPost.length > 0) return null;
-
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve({
-            loadedPost: [{
-                id: '1',
-                title: "Hello world!",
-                previewText: "Hope you enjoy it as much as i do",
-                thumbnail: "https://i.ibb.co/t26TSBb/Capture.png"
-              },
-              {
-                id: '2',
-                title: "Hello world! part 2",
-                previewText: "Next part 2",
-                thumbnail: "https://i.ibb.co/t26TSBb/Capture.png"
-              }
-            ]
-          })
-          // if error reject(new Error());
-        }, 1500);
-      }).then(data => {
-        context.store.commit('setPosts', data.loadedPost)
-      })
-      .catch(e => context.error(new Error()))
     },
     computed : {
       loadedPost(){

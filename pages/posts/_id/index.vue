@@ -15,21 +15,17 @@
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
-    asyncData(context, callback) {
-      setTimeout(() => {
-        callback(null, {
-          loadedPost: {
-            id: '1',
-            title: "Hello world! (ID : " + context.params.id + ") ",
-            previewText: "Hope you enjoy it as much as i do",
-            author : "Yusuf",
-            updatedDate : new Date(),
-            content : 'Mayor Jenderal Mamlouk diangkat sebagai Kepala Keamanan Nasional, untuk menggantikan Hisham Ikhtiar yang tewas dalam pemboman sepekan sebelumnya.', 
-            thumbnail: "https://i.ibb.co/t26TSBb/Capture.png"
+    asyncData(context) {
+      return axios.get(`https://nuxt-blog-3c79d-default-rtdb.asia-southeast1.firebasedatabase.app/posts/${context.params.id}.json`)
+        .then(response => {
+          return {
+            loadedPost : response.data
           }
-        });
-      }, 1000);
+        })
+        .catch(error => console.log(error));
     },
   }
 </script>

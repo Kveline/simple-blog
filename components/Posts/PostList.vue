@@ -2,7 +2,7 @@
   <div class="post-list">
     <section class="featured-posts">
       <PostPreview v-for="post in posts" :key="post.id" :id="post.id" :is-admin=isAdmin :previewText="post.previewText"
-        :title="post.title" :thumbnail="post.thumbnail" />
+        :title="post.title" :thumbnail="post.thumbnailLink" />
     </section>
   </div>
 </template>
