@@ -79,5 +79,5 @@ export default {
     mode: 'out-in'
   },
   
-  serverMiddleware: [express.json(), '~/api']
+  serverMiddleware: [express.json(), '~/api'],
 }
