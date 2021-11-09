@@ -57,6 +57,7 @@ export default {
 
   env: {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-3c79d-default-rtdb.asia-southeast1.firebasedatabase.app',
+    fbAPIKey: 'AIzaSyDkhPra6oAWCjaWo-h0fWGeNBMduTKSbig'
   },
 
   router: {
@@ -65,7 +66,9 @@ export default {
         path: '*',
         component: resolve(__dirname, 'pages/index.vue')
       })
-    }
+    },
+    // middleware log.js
+    middleware : 'log'
   },
 
   transition: {
