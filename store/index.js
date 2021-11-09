@@ -21,7 +21,7 @@ const createStore = () => {
     },
     actions: {
       async nuxtServerInit(vuexContext, context) {
-        return axios.get('https://nuxt-blog-3c79d-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json')
+        return axios.get(`${process.env.baseUrl}/posts.json`)
             .then(result => {
                 const postsArray = [];
                 for(const key in result.data){

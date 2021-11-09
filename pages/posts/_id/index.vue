@@ -3,7 +3,7 @@
     <section class="post">
       <h1 class="post-title">{{loadedPost.title}}</h1>
       <div class="post-details">
-        <div class="post-detail">Last update on {{loadedPost.updatedDate}}</div>
+        <div class="post-detail">Last update on {{loadedPost.updatedDate | date}}</div>
         <div class="post-detail">written by {{loadedPost.author}}</div>
       </div>
       <p class="post-content">{{loadedPost.content}}</p>
@@ -27,6 +27,10 @@
         })
         .catch(error => console.log(error));
     },
+
+    head:{
+      title : 'A blog post'
+    }
   }
 </script>
 

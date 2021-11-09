@@ -8,12 +8,7 @@
 </template>
 
 <script>
-  import PostList from '@/components/Posts/PostList'
   export default {
-    components: {
-      PostList
-    },
-
     fetch(context) {
       if(context.store.state.loadedPost.length > 0) return null;
     },
