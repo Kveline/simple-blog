@@ -1,3 +1,5 @@
+const express = require('express');
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
@@ -75,6 +77,7 @@ export default {
     // fade => kata awal di class animasi (main.css)
     name: 'fade',
     mode: 'out-in'
-  }
+  },
   
+  serverMiddleware: [express.json(), '~/api']
 }
